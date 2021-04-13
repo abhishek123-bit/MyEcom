@@ -11,7 +11,7 @@ import java.util.Collections;
 public class Main {
     public static void main(String[] args) {
 
-        //creating WeightBased Product
+        //creating the WeightBased Product
         Product apple=new Product("apple","",0.7f,80)
                 ,orange=new Product("orange","",0.4f,100)
 
