@@ -48,7 +48,7 @@ public class Main {
         //remove completely variantBased product Kiwi
         cart.removeAll(Kiwi);
 
-        //remove single item of variantBased product
+        //remove single item of surfExcel which is variantBased product
         cart.decrement(surfExcel,surfExcel.variants.get(0));
 
         System.out.println();
