@@ -15,7 +15,7 @@ public class Main {
         Product apple=new Product("apple","",0.7f,80)
                 ,orange=new Product("orange","",0.4f,100)
 
-        //creating VariantBased Product
+        //creating the VariantBased Product
                 ,Kiwi=new Product("kiwi","",new ArrayList<>(
                 Arrays.asList(
                         new Variant("500g",96)
