@@ -8,6 +8,7 @@ package com.streamliners.models;
  * qty - quantity of the item
  */
 public class CartItem {
+
     String name;
     float qty,unitPrice;
 

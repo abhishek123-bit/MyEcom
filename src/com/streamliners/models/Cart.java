@@ -11,6 +11,7 @@ import java.util.HashMap;
  * cartItems - Map of the cart items with name as key and quantity as value
  */
 public class Cart {
+
     HashMap<String, CartItem> cartItems = new HashMap<>();
     float total, noOfItems;
 

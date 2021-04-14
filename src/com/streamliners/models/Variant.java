@@ -6,6 +6,7 @@ package com.streamliners.models;
  * price - price of the variant
  */
 public class Variant {
+
     String name;
     float price;
 

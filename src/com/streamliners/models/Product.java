@@ -11,6 +11,7 @@ import java.util.Objects;
  * type - whether it is weight based or variant based product
  */
 public class Product {
+
     String name, image;
 
     /**
