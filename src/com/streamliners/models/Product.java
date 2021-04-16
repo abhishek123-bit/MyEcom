@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 public class Product {
 
-    String name, image;
+   public String name, image;
 
     /**
      * field for the Variant Based Product
@@ -24,9 +24,9 @@ public class Product {
      * minQty - minimum quantity have to purchase at least
      * pricePerKg - price of the product of 1 kg
      */
-    float minQty, pricePerKg;
+   public float minQty, pricePerKg;
 
-    int type;
+   public int type;
 
     /**
      * Constructor for the weight based product
@@ -62,18 +62,28 @@ public class Product {
     @Override
     public String toString() {
         if (type == ProductType.TYPE_WB) {
-            return "WeightBasedProduct{" +
-                    "name='" + name + '\'' +
-                    ", image='" + image + '\'' +
-                    ", minQty=" + minQty +
-                    ", pricePerKg=" + pricePerKg +
-                    '}';
+//            return "WeightBasedProduct{" +
+//                    "name='" + name + '\'' +
+//                    ", image='" + image + '\'' +
+//                    ", minQty=" + minQty +
+//                    ", pricePerKg=" + pricePerKg +
+//                    '}';
+          return String.format("1kg price of %s is %f and minQty is %f",
+                  name,pricePerKg,minQty);
         } else {
-            return "VariantsBasedProduct{" +
-                    "name='" + name + '\'' +
-                    ", image='" + image + '\'' +
-                    ", variants=" + variants +
-                    '}';
+
+                StringBuilder stringBuilder=new StringBuilder();
+                int count=1;
+            for (Variant variant:variants){
+                stringBuilder.append("\n"+"  "+count+")"+variant.toString()+", ");
+                count++;
+            }
+//            return "VariantsBasedProduct{" +
+//                    "name='" + name + '\'' +
+//                    ", image='" + image + '\'' +
+//                    ", variants=" + variants +
+//                    '}';
+            return stringBuilder.toString();
         }
     }
 }

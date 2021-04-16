@@ -12,8 +12,8 @@ import java.util.HashMap;
  */
 public class Cart {
 
-    HashMap<String, CartItem> cartItems = new HashMap<>();
-    float total, noOfItems;
+  public   HashMap<String, CartItem> cartItems = new HashMap<>();
+  public   float total, noOfItems;
 
     /**
      * To add/edit weight based product in the cart
@@ -26,13 +26,16 @@ public class Cart {
         if (cartItems.containsKey(product.name)) {
             total -= cartItems.get(product.name).cost();
             cartItems.get(product.name).qty = qty;
+            System.out.println("Product is successfully edited");
         }
         //Item is not present in cart
         else {
-            CartItem item = new CartItem(product.name, qty, product.pricePerKg);
+            CartItem item = new CartItem(product,product.name, qty, product.pricePerKg);
             cartItems.put(product.name, item);
+            System.out.println("Order is successfully added in your cart\n");
             noOfItems++;
         }
+
         total += cartItems.get(product.name).cost();
     }
 
@@ -47,10 +50,12 @@ public class Cart {
         //Item is already exist in cart
         if (cartItems.containsKey(key)) {
             cartItems.get(key).qty++;
+            System.out.println("Product is successfully edited");
         }
         //Item is not present in cart
         else {
-            CartItem item = new CartItem(product.name, 1, variant.price);
+            CartItem item = new CartItem(product,product.name, 1, variant.price);
+            System.out.println("Order is successfully added in your cart\n");
             cartItems.put(key, item);
         }
         noOfItems++;
@@ -102,6 +107,7 @@ public class Cart {
         //CartItem quantity is 0
         if (cartItems.get(key).qty == 0) {
             cartItems.remove(key);
+            System.out.println("Variant is completely remove from the cart");
         }
 
     }
@@ -127,9 +133,14 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "MyCart{ " +
-                cartItems.values() +
-                String.format("\ntotal %.2f items (Rs. %.2f)", noOfItems, total)
-                +"}";
+        StringBuilder stringBuilder=new StringBuilder();
+        int count=1;
+        for (CartItem cartItem:cartItems.values()){
+            stringBuilder.append("\n"+count+")"+cartItem);
+            count++;
+        }
+        return "MyCart :-" +
+              "  "+ stringBuilder +
+                String.format("\ntotal %.0f items (Rs. %.2f)", noOfItems, total);
     }
 }
